@@ -1,3 +1,7 @@
+import 'package:eaticket/controller2.dart';
+import 'package:eaticket/tip1screen.dart';
+import 'package:eaticket/welcomescreen.dart';
+
 import 'controller.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +17,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Controller(),
+      home: Tip1Screen(),
+      /*initialRoute: WelcomeScreen.routeName,
+      routes: {
+        WelcomeScreen.routeName: (context)=>WelcomeScreen(),
+        Controller2.secondScreenName: (context)=>Controller2(),
+      },*/
     );
   }
 }
