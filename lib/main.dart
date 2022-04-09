@@ -1,7 +1,11 @@
+import 'package:eaticket/Tip2Screen.dart';
+import 'package:eaticket/Tip3Screen.dart';
+import 'package:eaticket/Tip4Screen.dart';
 import 'package:eaticket/controller2.dart';
 import 'package:eaticket/tip1screen.dart';
 import 'package:eaticket/welcomescreen.dart';
 
+import 'Tip5Screen.dart';
 import 'controller.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Tip1Screen(),
+      home: Tip5Screen(),
       /*initialRoute: WelcomeScreen.routeName,
       routes: {
         WelcomeScreen.routeName: (context)=>WelcomeScreen(),
