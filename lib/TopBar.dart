@@ -27,7 +27,7 @@ class _TopBarState extends State<TopBar> {
         SizedBox(width: MediaQuery.of(context).size.width*0.7,),
         Row(
           children: [
-            Text("7",
+           Text("7",
               style: TextStyle(fontSize: 40,fontWeight: FontWeight.w900,color:couleur4,fontFamily: "Montserrat"),
             ),
             SvgPicture.asset(
