@@ -157,54 +157,51 @@ class _ExchangeState extends State<Exchange> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width:  MediaQuery.of(context).size.width*0.4,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.1),
-                          offset: Offset(-1, -1),
-                          blurRadius: 0,
-                          spreadRadius: 0
-                      ),
-                    ],
-                  ),
-                  child: TextButton(
-                    onPressed: (){},
-                    child: Text("Cancel",
-                      style: TextStyle(fontSize: 25,fontFamily: "Montserrat",color: couleur4, fontWeight: FontWeight.w900),
-                    ),
-                  ),
+                _button(textColor: couleur4,
+                  textField: "Cancel",
+                  back: Colors.white,
+                  onClick: (){
+                  setState(() {
+                    _ticketsNumber=0;
+                    _price=0;
+                  });
+                  }
                 ),
                 SizedBox(width: MediaQuery.of(context).size.width*0.1,),
-                Container(
-                  width:  MediaQuery.of(context).size.width*0.4,
-                  decoration: const BoxDecoration(
-                    color: Color(0xffE6B32A),
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.1),
-                          offset: Offset(-1, -1),
-                          blurRadius: 0,
-                          spreadRadius: 0
-                      ),
-                    ],
-                  ),
-                  child: TextButton(
-                    onPressed: (){},
-                    child: Text("Confirm",
-                      style: TextStyle(fontSize: 25,fontFamily: "Montserrat",color: Colors.white, fontWeight: FontWeight.w900),
-                    ),
-                  ),
+                _button(
+                  textField: "Confirm",
+                  textColor: Colors.white,
+                  back: Color(0xffE6B32A),
                 )
-
               ],
             )
-
           ],
+        ),
+      ),
+    );
+  }
+  Container _button({String? textField,  Color? textColor , Color?  back, Function? onClick})
+  {
+    return Container(
+      width:  MediaQuery.of(context).size.width*0.4,
+      decoration: BoxDecoration(
+        color: back,
+        borderRadius: BorderRadius.all(Radius.circular(40)),
+        boxShadow: [
+          BoxShadow(
+              color: Color.fromRGBO(0, 0, 0, 0.1),
+              offset: Offset(-1, -1),
+              blurRadius: 0,
+              spreadRadius: 0
+          ),
+        ],
+      ),
+      child: TextButton(
+        onPressed: (){
+          onClick!();
+        },
+        child: Text('$textField',
+          style: TextStyle(fontSize: 25,fontFamily: "Montserrat",color: textColor, fontWeight: FontWeight.w900),
         ),
       ),
     );
