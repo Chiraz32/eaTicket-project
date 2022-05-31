@@ -35,6 +35,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   animated_bottom_navigation_bar: ^0.3.2
+  flutter_svg: ^1.0.3
+  intl: ^0.17.0
+  flip_card: ^0.6.0
+  flutter_rating_bar: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -62,6 +66,18 @@ flutter:
   assets:
     - assets/images/7.png
     - assets/images/SVGs/home.svg
+    - assets/images/SVGs/01 align center.svg
+    - assets/images/SVGs/receipt 2.svg
+    - assets/images/SVGs/Vector.svg
+    - assets/images/SVGs/Vector-1.svg
+    - assets/images/SVGs/Vector-2.svg
+    - assets/images/SVGs/add.svg
+    - assets/images/SVGs/knife_fork.svg
+    - assets/images/SVGs/knife.svg
+    - assets/images/SVGs/fork.svg
+    - assets/images/SVGs/spoon.svg
+    - assets/images/good-review 1.png
+    - assets/images/thoughtful-chef-3668326-3668326%400 1.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
