@@ -3,6 +3,7 @@ import 'meal_model.dart';
 
 Color couleur1 = Color(0xff3C84C0);
 Color couleur2 = Color(0xff4D89EC);
+Color couleur3=Color(0xbcd2eb);
 Color couleur2_lightOpacity = Color(0xaa4D89EC);
 Color couleur2_superlightOpacity = Color.fromARGB(170, 137, 178, 243);
 Color bck_color = Color(0xffF4F4FB);
