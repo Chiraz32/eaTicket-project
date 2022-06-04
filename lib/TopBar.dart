@@ -21,6 +21,10 @@ class _TopBarState extends State<TopBar> {
         IconButton(
           color: couleur1,
           onPressed: () {},
+        SizedBox(width: MediaQuery.of(context).size.width*0.01,),
+        IconButton(
+          color: couleur1,
+          onPressed: (){},
           icon: SvgPicture.asset(
             "assets/images/SVGs/profile.svg",
             height: 60,
@@ -39,6 +43,11 @@ class _TopBarState extends State<TopBar> {
                   fontWeight: FontWeight.bold,
                   color: couleur4,
                   fontFamily: "Montserrat"),
+        SizedBox(width: MediaQuery.of(context).size.width*0.7,),
+        Row(
+          children: [
+           Text("7",
+              style: TextStyle(fontSize: 40,fontWeight: FontWeight.w900,color:couleur4,fontFamily: "Montserrat"),
             ),
             SvgPicture.asset(
               "assets/images/SVGs/ticket.svg",

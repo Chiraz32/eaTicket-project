@@ -21,8 +21,8 @@ class _ControllerState extends State<Controller> {
 
   //final autoSizeGroup = AutoSizeGroup();
 
-  //late AnimationController _animationController;
-  //late Animation<double> animation;
+  late AnimationController _animationController;
+  late Animation<double> animation;
   late CurvedAnimation curve;
 
   final iconList = <IconData>[
