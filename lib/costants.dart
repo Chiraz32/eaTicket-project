@@ -9,6 +9,7 @@ Color bck_color = Color(0xffF4F4FB);
 Color bck_color_light = Color(0xeeF4F4FB);
 Color Couleur3 = Color(0xffFFE61B);
 Color couleur4 = Color(0xffE6B32A);
+Color couleur5 = Color(0xEEEEEED9);
 
 List<Meal> meals = [
   Meal(

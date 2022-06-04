@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'costants.dart';
+
 class TopBar extends StatefulWidget {
   const TopBar({Key? key}) : super(key: key);
 
@@ -14,6 +15,12 @@ class _TopBarState extends State<TopBar> {
   Widget build(BuildContext context) {
     return Row(
       children: [
+        SizedBox(
+          width: MediaQuery.of(context).size.width * 0.01,
+        ),
+        IconButton(
+          color: couleur1,
+          onPressed: () {},
         SizedBox(width: MediaQuery.of(context).size.width*0.01,),
         IconButton(
           color: couleur1,
@@ -24,6 +31,18 @@ class _TopBarState extends State<TopBar> {
             width: 60,
           ),
         ),
+        SizedBox(
+          width: MediaQuery.of(context).size.width * 0.7,
+        ),
+        Row(
+          children: [
+            Text(
+              "7",
+              style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: couleur4,
+                  fontFamily: "Montserrat"),
         SizedBox(width: MediaQuery.of(context).size.width*0.7,),
         Row(
           children: [
