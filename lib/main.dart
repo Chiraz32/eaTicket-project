@@ -1,30 +1,35 @@
 import 'package:eaticket/menu_contribution.dart';
 import 'dart:ui';
-
-
 import 'package:flutter/material.dart' ;
+import 'controller.dart';
+import 'password_forgotten.dart';
+import 'login.dart';
+import 'new_password.dart';
+import 'password_code.dart';
+import 'package:flutter/material.dart';
 
 
 void main() {
-  runApp(const MyApp());
-
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-   
-return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        initialRoute: '/welcome',
+    return MaterialApp(
+      initialRoute: '/welcome',
         routes: {
           '/welcome': (context) => const menu_contribution(),
           
-      },
-        title: 'EaTicket',
-);
+      },  
+      title: 'eaTicket',
+      home: const NewPassword(),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Controller(),
+    );
+  }
+}
 
-  }}
