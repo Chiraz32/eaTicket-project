@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'meal_model.dart';
 
+const Color couleur6 = Color(0xee4D89EC);
+Color couleur5 = Color.fromARGB(255, 220, 218, 218);
 Color couleur1 = Color(0xff3C84C0);
 Color couleur2 = Color(0xff4D89EC);
 Color couleur3=Color(0xbcd2eb);
