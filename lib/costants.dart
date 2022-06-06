@@ -5,14 +5,13 @@ const Color couleur6 = Color(0xee4D89EC);
 Color couleur5 = Color.fromARGB(255, 220, 218, 218);
 Color couleur1 = Color(0xff3C84C0);
 Color couleur2 = Color(0xff4D89EC);
-Color couleur3=Color(0xbcd2eb);
+Color couleur3 = Color(0xbcd2eb);
 Color couleur2_lightOpacity = Color(0xaa4D89EC);
 Color couleur2_superlightOpacity = Color.fromARGB(170, 137, 178, 243);
 Color bck_color = Color(0xffF4F4FB);
 Color bck_color_light = Color(0xeeF4F4FB);
 Color Couleur3 = Color(0xffFFE61B);
 Color couleur4 = Color(0xffE6B32A);
-Color couleur5 = Color(0xEEEEEED9);
 
 List<Meal> meals = [
   Meal(

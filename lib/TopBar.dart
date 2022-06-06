@@ -13,24 +13,35 @@ class TopBar extends StatefulWidget {
 class _TopBarState extends State<TopBar> {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        SizedBox(
-          width: MediaQuery.of(context).size.width * 0.01,
+    return Row(children: [
+      //SizedBox(
+      //  width: MediaQuery.of(context).size.width * 0.01,
+      //),
+      //IconButton(
+      //  color: couleur1,
+      //  onPressed: () {},
+      SizedBox(
+        width: MediaQuery.of(context).size.width * 0.01,
+      ),
+      IconButton(
+        color: couleur1,
+        onPressed: () {},
+        icon: SvgPicture.asset(
+          "assets/images/SVGs/profile.svg",
+          height: 60,
+          width: 60,
         ),
-        IconButton(
-          color: couleur1,
-          onPressed: () {},
-        SizedBox(width: MediaQuery.of(context).size.width*0.01,),
-        IconButton(
-          color: couleur1,
-          onPressed: (){},
-          icon: SvgPicture.asset(
-            "assets/images/SVGs/profile.svg",
-            height: 60,
-            width: 60,
-          ),
-        ),
+      ),
+      SizedBox(
+        width: MediaQuery.of(context).size.width * 0.7,
+      ),
+      Row(children: [
+        Text("7",
+            style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+                color: couleur4,
+                fontFamily: "Montserrat")),
         SizedBox(
           width: MediaQuery.of(context).size.width * 0.7,
         ),
@@ -40,14 +51,9 @@ class _TopBarState extends State<TopBar> {
               "7",
               style: TextStyle(
                   fontSize: 40,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w900,
                   color: couleur4,
                   fontFamily: "Montserrat"),
-        SizedBox(width: MediaQuery.of(context).size.width*0.7,),
-        Row(
-          children: [
-           Text("7",
-              style: TextStyle(fontSize: 40,fontWeight: FontWeight.w900,color:couleur4,fontFamily: "Montserrat"),
             ),
             SvgPicture.asset(
               "assets/images/SVGs/ticket.svg",
@@ -57,7 +63,7 @@ class _TopBarState extends State<TopBar> {
             ),
           ],
         ),
-      ],
-    );
+      ]),
+    ]);
   }
 }
