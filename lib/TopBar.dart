@@ -1,3 +1,5 @@
+import 'package:eaticket/Classes/wallet.dart';
+import 'package:eaticket/http_requests/http-request.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -9,7 +11,26 @@ class TopBar extends StatefulWidget {
   State<TopBar> createState() => _TopBarState();
 }
 
+
+
 class _TopBarState extends State<TopBar> {
+  HttpService httpService=HttpService();
+  int balance=0;
+
+  @override
+  void initState() {
+    super.initState();
+    // getBalance();
+
+  }
+
+  getBalance() async {
+    Wallet message= await httpService.getBalance(2);
+    if(message !=null ){
+      balance= message.balance!;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -27,9 +48,10 @@ class _TopBarState extends State<TopBar> {
         SizedBox(width: MediaQuery.of(context).size.width*0.7,),
         Row(
           children: [
-           Text("7",
+            Text('$balance',
               style: TextStyle(fontSize: 40,fontWeight: FontWeight.w900,color:couleur4,fontFamily: "Montserrat"),
             ),
+            SizedBox(width: MediaQuery.of(context).size.width*0.02,),
             SvgPicture.asset(
               "assets/images/SVGs/ticket.svg",
               color: couleur4,
@@ -41,4 +63,8 @@ class _TopBarState extends State<TopBar> {
       ],
     );
   }
+
+  // Future<String> getBalance(id) async {
+  //   return this.httpService.getWalletBalance(id);
+  // }
 }

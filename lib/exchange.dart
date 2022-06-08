@@ -1,6 +1,10 @@
+import 'package:eaticket/Classes/error.dart';
+import 'package:eaticket/Service/Services.dart';
 import 'package:eaticket/TopBar.dart';
+import 'package:eaticket/http_requests/http-request.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'Classes/wallet.dart';
 import 'costants.dart';
 
 class Exchange extends StatefulWidget {
@@ -13,6 +17,8 @@ class Exchange extends StatefulWidget {
 class _ExchangeState extends State<Exchange> {
   int _ticketsNumber =0;
   double _price =0.0;
+  dynamic message ;
+  HttpService httpService=HttpService();
   void _incrementTicketNumber(){
     setState(() {
       _ticketsNumber++;
@@ -27,6 +33,26 @@ class _ExchangeState extends State<Exchange> {
       }
     });
   }
+
+  patchingWallet() async {
+    message= await httpService.buyTicket(2, _ticketsNumber);
+    if (message !=null){
+      if(message is Wallet){
+        setState(() {
+          Service.dialogBasedOnRequest(context: context,color: couleur1, message: "Your Wallet Is Updated");
+          _ticketsNumber=0;
+          _price=0;
+        });
+      }else if(message is Error) {
+        Error error=message;
+        Service.dialogBasedOnRequest(context: context,color: couleur1, message: error.message);
+      }
+    }
+  }
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -172,6 +198,42 @@ class _ExchangeState extends State<Exchange> {
                   textField: "Confirm",
                   textColor: Colors.white,
                   back: Color(0xffE6B32A),
+                  onClick: ()  {
+                    setState(() {
+                      if(_ticketsNumber==0){
+                        Service.openDialog(
+                            context: context,
+                            x: -1,
+                            children: [
+                              SizedBox(height: MediaQuery.of(context).size.height*0.03,),
+                              Container(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  "Please Enter The\nNumber Of Tickets To Buy",
+                                  softWrap: true,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: MediaQuery.of(context).size.height*0.03,),
+                            ],
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(20),
+                                )
+                            ),
+                            back: couleur1
+                        );
+                      }else {
+                          patchingWallet();
+                      }
+
+                    });
+
+                  }
                 )
               ],
             )

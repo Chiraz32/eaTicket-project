@@ -1,10 +1,15 @@
 import 'dart:io';
 
+import 'package:eaticket/Classes/error.dart';
+import 'package:eaticket/Classes/transaction.dart';
 import 'package:eaticket/TopBar.dart';
 import 'package:eaticket/costants.dart';
+import 'package:eaticket/http_requests/http-request.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+
+import 'Service/Services.dart';
 
 class Paiement extends StatefulWidget {
   const Paiement({Key? key}) : super(key: key);
@@ -14,6 +19,7 @@ class Paiement extends StatefulWidget {
 
 class _PaiementState extends State<Paiement> {
   final qrKey=GlobalKey(debugLabel: 'QR');
+  HttpService httpService=HttpService();
   Barcode? barCode;
   QRViewController? controller;
   @override
@@ -30,6 +36,18 @@ class _PaiementState extends State<Paiement> {
     }
     controller!.resumeCamera();
   }
+
+  doTransaction() async {
+    dynamic message=await httpService.doTransaction(2, 3, 4);
+    if (message!=null){
+      if(message is Transaction){
+        Service.dialogBasedOnRequest(context: context ,color: couleur1 , message: "Successfully Done");
+      }else if (message is Error){
+        Error error=message;
+        Service.dialogBasedOnRequest(context: context,color: couleur1, message: error.message);
+      }
+    }
+  }
   @override
   Widget build(BuildContext context) {
 
@@ -44,7 +62,8 @@ class _PaiementState extends State<Paiement> {
             ),
             _TicketButton(
               onClick: () {
-                openDialog(
+                Service.openDialog(
+                  context: context,
                   x: 1,
                   children: [
                     Stack(
@@ -95,7 +114,8 @@ class _PaiementState extends State<Paiement> {
             ),
             _TicketButton(
               onClick: () {
-                openDialog(
+                Service.openDialog(
+                  context: context,
                   x: -1,
                     children: [
                       SizedBox(height: MediaQuery.of(context).size.height*0.03,),
@@ -199,15 +219,7 @@ class _PaiementState extends State<Paiement> {
       ),
     ));
   }
-  Future openDialog({ List<Widget>? children, ShapeBorder? shape, Color? back , required int x}) => showDialog(
-      context: context,
-      builder: (context)=>SimpleDialog(
-          backgroundColor: back,
-          shape: shape,
-          children: children,
-    contentPadding: (x>0) ? EdgeInsets.zero : EdgeInsets.fromLTRB(0, 12, 0, 16),
-      )
-  );
+
   Widget buildQrview(BuildContext context)=> QRView(
     key: qrKey,
     onQRViewCreated: onQRViewCreated,

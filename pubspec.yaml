@@ -37,6 +37,8 @@ dependencies:
   animated_bottom_navigation_bar: ^0.3.2
   flutter_svg: ^1.0.3
   qr_code_scanner: ^0.7.0
+  http_requests: ^1.4.0
+  http :
 
 dev_dependencies:
   flutter_test:
