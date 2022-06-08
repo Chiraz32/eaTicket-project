@@ -4,10 +4,10 @@ import 'package:eaticket/Classes/error.dart';
 import 'package:http/http.dart' as http;
 
 class HttpService{
-  String url="https://ab01-197-2-213-189.eu.ngrok.io";
+  String url="https://f8a7-197-1-94-248.eu.ngrok.io";
 
   Future<dynamic> wallet(var response) async{
-    if (response.statusCode == 200){
+    if (response.statusCode >= 200 && response.statusCode<=299){
       var json= response.body;
       return walletFromJson(json);
     }else {
@@ -30,12 +30,13 @@ class HttpService{
 
   Future<dynamic> doTransaction(int senderId,int recieverId, int amount)async{
     String urlToSend='${this.url}/transaction';
+
     var response=await http.post(Uri.parse(urlToSend),body: {
-      "amount" : amount,
-      "senderId" : senderId ,
-      "recieverId": recieverId
+      "amount" : amount.toString(),
+      "senderId" : senderId.toString() ,
+      "recieverId": recieverId.toString()
     });
-    if (response.statusCode == 200){
+    if (response.statusCode >= 200 && response.statusCode<=299){
       var json= response.body;
       return transactionFromJson(json);
     }else {

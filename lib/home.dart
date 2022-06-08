@@ -55,7 +55,7 @@ class _HomeState extends State<Home> {
                       padding: const EdgeInsets.symmetric(horizontal: 5),
                       onPressed: () {},
                       icon: SvgPicture.asset(
-                        'assets/images/SVGs/01 align center.svg',
+                        'assets/images/SVGs/profile.svg',
                         height: 30,
                         width: 30,
                       )),
@@ -63,7 +63,7 @@ class _HomeState extends State<Home> {
                       padding: const EdgeInsets.symmetric(horizontal: 5),
                       onPressed: () {},
                       icon: SvgPicture.asset(
-                        'assets/images/SVGs/01 align center.svg',
+                        'assets/images/SVGs/profile.svg',
                         height: 30,
                         width: 30,
                       )),
@@ -94,7 +94,7 @@ class _HomeState extends State<Home> {
                               color: Colors.white,
                               fontWeight: FontWeight.bold),
                         ),
-                        SvgPicture.asset('assets/images/SVGs/receipt 2.svg'),
+                        SvgPicture.asset('assets/images/SVGs/ticket.svg'),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [

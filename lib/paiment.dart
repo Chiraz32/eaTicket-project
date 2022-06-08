@@ -38,7 +38,7 @@ class _PaiementState extends State<Paiement> {
   }
 
   doTransaction() async {
-    dynamic message=await httpService.doTransaction(2, 3, 4);
+    dynamic message=await httpService.doTransaction(2, 3, 21);
     if (message!=null){
       if(message is Transaction){
         Service.dialogBasedOnRequest(context: context ,color: couleur1 , message: "Successfully Done");
@@ -48,6 +48,7 @@ class _PaiementState extends State<Paiement> {
       }
     }
   }
+
   @override
   Widget build(BuildContext context) {
 
@@ -235,6 +236,7 @@ class _PaiementState extends State<Paiement> {
     controller.scannedDataStream.listen((barCode) {
       setState(() {
         this.barCode=barCode;
+
       });
     });
   }

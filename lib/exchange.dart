@@ -4,6 +4,7 @@ import 'package:eaticket/TopBar.dart';
 import 'package:eaticket/http_requests/http-request.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'Classes/transaction.dart';
 import 'Classes/wallet.dart';
 import 'costants.dart';
 
@@ -34,8 +35,8 @@ class _ExchangeState extends State<Exchange> {
     });
   }
 
-  patchingWallet() async {
-    message= await httpService.buyTicket(2, _ticketsNumber);
+  patchingWallet({ required int userId, required int ticketNumber }) async {
+    message= await httpService.buyTicket(userId, ticketNumber);
     if (message !=null){
       if(message is Wallet){
         setState(() {
@@ -49,8 +50,6 @@ class _ExchangeState extends State<Exchange> {
       }
     }
   }
-
-
 
 
   @override
@@ -228,7 +227,7 @@ class _ExchangeState extends State<Exchange> {
                             back: couleur1
                         );
                       }else {
-                          patchingWallet();
+                          patchingWallet(userId: 2,ticketNumber: _ticketsNumber);
                       }
 
                     });
